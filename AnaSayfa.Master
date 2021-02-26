@@ -1,0 +1,135 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AnaSayfa.master.cs" Inherits="YemekTarifleri.AnaSayfa" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="Stiller1.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server" >
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            text-align: center;
+        }
+        .auto-style2 {
+            width: 100%;
+            height: 45px;
+        }
+        .auto-style3 {
+            font-size: medium;
+            text-align: center;
+        }
+        .auto-style4 {
+            font-size: medium;
+        }
+        .auto-style5 {
+            width: 520px;
+            height: 700px;
+        }
+        .auto-style6 {
+            margin-left: 0px;
+        }
+        .auto-style7 {
+            font-size: medium;
+            text-align: center;
+            width: 145px;
+        }
+        .auto-style8 {
+            font-size: medium;
+            text-align: center;
+            width: 199px;
+        }
+        .auto-style9 {
+            font-size: medium;
+            text-align: center;
+            width: 157px;
+        }
+        .auto-style10 {
+            font-size: medium;
+            text-align: center;
+            width: 169px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div  style="margin-left:280px; height: 150px; width:800px; background-color:#CC99FF; " class="auto-style1">
+           
+            <asp:Image ID="Image1" runat="server" Height="150px" ImageUrl="~/Resimler/cropped-yemek-tarifleri-sitesi-dunya-mutfaklari-logo-ozyemek-2-scaled-1.jpg" Width="800px" />
+           
+        </div>
+       <div style="margin-left:280px; width:80px; height:20px;  "></div> <%--Boşluk için--%>
+          <div style="margin-left:280px; width:800px; height:45px; background-color:#CC99FF;">
+            <table class="auto-style2">
+                <tr>
+                    <td class="auto-style7">
+                        <asp:Image ID="Image3" runat="server" CssClass="auto-style6" Height="40px" ImageUrl="~/icons/anasayfa.png" Width="42px" />
+                    </td>
+                    <td class="auto-style8">
+                        <asp:Image ID="Image4" runat="server" BackColor="Black" CssClass="auto-style6" Height="40px" ImageUrl="~/icons/gunyemek.png" Width="42px" />
+                    </td>
+                    <td class="auto-style9">
+                        <asp:Image ID="Image5" runat="server" CssClass="auto-style6" Height="40px" ImageUrl="~/icons/oner.png" Width="42px" />
+                    </td>
+                    <td class="auto-style10">
+                        <asp:Image ID="Image6" runat="server" CssClass="auto-style6" Height="40px" ImageUrl="~/icons/hakkimizda.png" Width="42px" />
+                    </td>
+                    <td class="auto-style3">
+                        <asp:Image ID="Image7" runat="server" CssClass="auto-style6" Height="40px" ImageUrl="~/icons/mesaj.jpg" Width="42px" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="margin-left:280px; width:800px; height:45px; background-color:#CC99FF;">
+            <table class="auto-style2">
+                <tr>
+                    <td class="auto-style3"><a href="AnaSayfa.aspx"><strong>ANASAYFA</strong></a></td>
+                    <td class="auto-style3"><a href="GununYemegi.aspx"><strong>GÜNÜN YEMEĞİ</strong></a></td>
+                    <td class="auto-style3"><a href="TarifOner.aspx"><strong>TARİF ÖNER</strong></a></td>
+                    <td class="auto-style3"><a href="Hakkimizda.aspx"><strong>HAKKIMIZDA</strong></a></td>
+                    <td class="auto-style3"><a href="Iletisim.aspx"><strong>İLETİŞİM</strong></a></td>
+                </tr>
+            </table>
+        </div>
+        <div style="margin-left:280px; width:800px; height:20px;"></div> <%--Boşluk için--%>
+        <div style="margin-left:280px; width:800px; height:20px;"></div> <%--Boşluk için--%>
+        <div style="margin-left:280px; width:800px; height:00px;">
+            <div style="margin-left:5px; margin-top:5px; width:250px; float:left; height:250px; background-color:#CC99FF;">
+                <asp:DataList ID="DataList2" runat="server" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="DataList2_SelectedIndexChanged" Height="67px" Width="250px">
+                    <AlternatingItemStyle BackColor="White" />
+                    <FooterStyle BackColor="#CCCC99" />
+                    <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+                    <ItemStyle BackColor="#F7F7DE" />
+                    <ItemTemplate>
+                        <asp:Image ID="Image2" runat="server" Height="40px" ImageUrl='<%# Eval("KategoriResim") %>' Width="42px" />
+                        <strong>
+                        &nbsp;
+                  <a href="KategoriDetay.aspx?KategoriId= <%#Eval("KategoriId") %>">    <asp:Label ID="Label1" runat="server" CssClass="auto-style4" Text='<%# Eval("KategoriAd") %>'></asp:Label></a>
+                        &nbsp;&nbsp;(
+                        <asp:Label ID="Label2" runat="server" CssClass="auto-style4" Text='<%# Eval("KategoriAdet") %>'></asp:Label>
+                        )</strong>
+                    </ItemTemplate>
+                    <SelectedItemStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                </asp:DataList>
+                 
+            </div>
+            <div style="margin-left:280px; width:500px; height:auto; background-color:#CC99FF" class="auto-style5">
+               <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+                   <p>
+                       &nbsp;</p>
+            </asp:ContentPlaceHolder>
+            </div>
+            </div>
+          
+                 
+            
+
+                
+
+        
+    </form>
+</body>
+</html>
+
